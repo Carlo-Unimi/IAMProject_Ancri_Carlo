@@ -113,10 +113,6 @@ allChroma = normalize(allChroma);
 allMfccs = normalize(allMfccs);
 allFeats = normalize(allFeats);
 
-% disp('Appliying PCA algorithm...');
-% [allTrain, allTest, coeff, mu, numCom] = reduceDim(allTrain, allTest, 85);
-% fprintf('Done.\n\n');
-
 
 %% K-MEANS TO CLUSTER
 clusterAlg(allChroma', ids, '[chroma]-feats', '1st CHROMA', '2nd CHROMA');
@@ -200,8 +196,6 @@ noisyMf = (noisyMf - repmat(mn, length(noisyMf), 1)) ./repmat(st, length(noisyMf
 
 noisyAll = noisyAll';
 noisyAll = (noisyAll - repmat(mnAll, length(noisyAll), 1)) ./repmat(stAll, length(noisyAll), 1);
-% [~, score, ~, ~, ~, ~] = pca(noisyAll);
-% noisyAll = score(:, 1:numCom);
 
 % kNN on noisy set
 disp('Testing the k-NN models...');
