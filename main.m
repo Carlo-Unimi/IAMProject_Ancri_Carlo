@@ -4,6 +4,7 @@ addpath(genpath(pwd));
 
 saveImages = false;
 
+warning('off');
 flag = 0;
 flag = startMenu(flag);
 
